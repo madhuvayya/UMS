@@ -48,3 +48,9 @@ CREATE TABLE `pages` (
   `page_url` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ;
+
+-- query to add creator_stamp and creator coloumns in pages table
+
+ALTER TABLE `ums`.`pages` 
+ADD COLUMN `creator_stamp` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `page_url`,
+ADD COLUMN `creator` VARCHAR(45) NULL AFTER `creator_stamp`;
