@@ -40,9 +40,9 @@ CREATE TABLE `ums`.`user_login_history` (
     ON UPDATE NO ACTION
 );
 
--- query to create permissions_menu table
+-- query to create pages table
 
-CREATE TABLE `permissions_menu` (
+CREATE TABLE `pages` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `page_name` varchar(45) NOT NULL,
   `page_url` varchar(45) DEFAULT NULL,
