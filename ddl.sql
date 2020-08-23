@@ -39,3 +39,12 @@ CREATE TABLE `ums`.`user_login_history` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 );
+
+-- query to create permissions_menu table
+
+CREATE TABLE `permissions_menu` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `page_name` varchar(45) NOT NULL,
+  `page_url` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ;
