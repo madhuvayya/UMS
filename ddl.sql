@@ -54,3 +54,20 @@ CREATE TABLE `pages` (
 ALTER TABLE `ums`.`pages` 
 ADD COLUMN `creator_stamp` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `page_url`,
 ADD COLUMN `creator` VARCHAR(45) NULL AFTER `creator_stamp`;
+
+-- query to create permissions table  
+
+CREATE TABLE ums.permissions (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_id INT UNSIGNED NOT NULL,
+  page_id INT UNSIGNED NOT NULL,
+  `add` BOOLEAN NOT NULL,
+  `delete` BOOLEAN NOT NULL,
+  `modify` BOOLEAN NOT NULL,
+  `read` BOOLEAN NOT NULL, 
+  creator_stamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+  creator_user VARCHAR(45),
+  PRIMARY KEY (`id`),
+	CONSTRAINT `permissions_fk_1` FOREIGN KEY (user_id) REFERENCES user_info(id),
+	CONSTRAINT `permissions_fk_2` FOREIGN KEY (page_id) REFERENCES pages(page_id)
+);
