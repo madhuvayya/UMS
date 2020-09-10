@@ -16,4 +16,8 @@ VALUES (1,'Dashboard'),
 
 select count(*), country from ums.user_info
   group by country
-  order by count(*) desc;        
+  order by count(*) desc;
+  
+-- query to find the total number of users
+
+SELECT count(*) FROM ums.user_info;  
