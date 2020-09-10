@@ -21,3 +21,20 @@ select count(*), country from ums.user_info
 -- query to find the total number of users
 
 SELECT count(*) FROM ums.user_info;  
+
+-- query to create stored procedure to get page permissions
+
+DELIMITER //
+
+CREATE PROCEDURE GetPermissions(
+	IN userId INT, IN pageId INT
+)
+BEGIN
+	SELECT * 
+    FROM `ums`.`permissions` 
+    WHERE user_id = userId AND page_id = pageId;
+END //
+
+DELIMITER ;
+
+CALL GetPermissions(83,2);
