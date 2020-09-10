@@ -38,3 +38,8 @@ END //
 DELIMITER ;
 
 CALL GetPermissions(83,2);
+
+-- query to find the percentage of users according based on gender
+
+ select 100 * count(*) / (select count(*) from ums.user_info) 
+    from ums.user_info where gender = 'male';
