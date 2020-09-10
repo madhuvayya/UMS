@@ -11,3 +11,9 @@ VALUES (1,'Dashboard'),
         (4,'Web Page 1'),
         (5,'Web Page 2'),
         (6,'Web Page 3');
+        
+-- query to get the number of users based on countries
+
+select count(*), country from ums.user_info
+  group by country
+  order by count(*) desc;        
