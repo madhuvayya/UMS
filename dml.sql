@@ -47,4 +47,10 @@ CALL GetPermissions(83,2);
 -- query to find the percentage of users based on age group
 
 Select count(*) * 100 / (select count(*) from ums.user_info)  
-from ums.user_info where year(now())-year(dob) between 18 and 22;    
+from ums.user_info where year(now())-year(dob) between 18 and 22;  
+
+-- query to find every month number of registration 
+
+SELECT count(*) as users , date_format(creator_stamp,"%b %Y") as monthYear 
+FROM user_info 
+GROUP BY date_format(creator_stamp,"%m %Y");  
