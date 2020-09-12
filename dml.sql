@@ -60,3 +60,7 @@ GROUP BY date_format(creator_stamp,"%m %Y");
 UPDATE ums.user_info SET failed_login_attempts = failed_login_attempts + 1 WHERE user_name = ?;
 
 UPDATE ums.user_info SET status = 'inactive' WHERE user_name = ? AND failed_login_attempts = 3;
+
+-- query to update user status as active after successful login
+
+UPDATE ums.user_info SET status = 'active',failed_login_attempts = 0 WHERE id = ?;
