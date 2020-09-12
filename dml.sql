@@ -54,3 +54,9 @@ from ums.user_info where year(now())-year(dob) between 18 and 22;
 SELECT count(*) as users , date_format(creator_stamp,"%b %Y") as monthYear 
 FROM user_info 
 GROUP BY date_format(creator_stamp,"%m %Y");  
+
+-- queries to update user status when user failed to login for 3 times
+
+UPDATE ums.user_info SET failed_login_attempts = failed_login_attempts + 1 WHERE user_name = ?;
+
+UPDATE ums.user_info SET status = 'inactive' WHERE user_name = ? AND failed_login_attempts = 3;
