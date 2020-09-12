@@ -64,3 +64,9 @@ UPDATE ums.user_info SET status = 'inactive' WHERE user_name = ? AND failed_logi
 -- query to update user status as active after successful login
 
 UPDATE ums.user_info SET status = 'active',failed_login_attempts = 0 WHERE id = ?;
+
+-- query to store user log-out time
+
+UPDATE `ums`.`user_log_history`
+SET `logout_timestamp` = now()
+WHERE `user_id` = ? AND logout_timestamp is null; 
