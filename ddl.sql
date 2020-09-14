@@ -71,3 +71,10 @@ CREATE TABLE ums.permissions (
 	CONSTRAINT `permissions_fk_1` FOREIGN KEY (user_id) REFERENCES user_info(id),
 	CONSTRAINT `permissions_fk_2` FOREIGN KEY (page_id) REFERENCES pages(page_id)
 );
+
+-- query to create table country
+
+CREATE TABLE `ums`.`country` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `country_name` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id`));
