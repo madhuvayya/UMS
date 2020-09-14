@@ -83,3 +83,11 @@ SELECT count(*) as users , date_format(creator_stamp,"%b") as month
 FROM user_info 
 WHERE YEAR(creator_stamp) = YEAR(now())
 GROUP BY date_format(creator_stamp,"%b");
+
+-- query to get current month registration data
+
+SELECT count(*) as users , date_format(creator_stamp,"%e") as day 
+FROM user_info 
+WHERE YEAR(creator_stamp) = YEAR(now())
+AND MONTH(creator_stamp) = MONTH(now())
+GROUP BY date_format(creator_stamp,"%e"); 
