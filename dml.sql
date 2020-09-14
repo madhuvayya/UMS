@@ -76,3 +76,10 @@ WHERE `user_id` = ? AND logout_timestamp is null;
 SELECT count(*) as users , date_format(creator_stamp,"%b %Y") as month_year 
 FROM user_info 
 GROUP BY date_format(creator_stamp,"%m %Y");
+
+-- query to get current year registrations
+
+SELECT count(*) as users , date_format(creator_stamp,"%b") as month 
+FROM user_info 
+WHERE YEAR(creator_stamp) = YEAR(now())
+GROUP BY date_format(creator_stamp,"%b");
