@@ -70,3 +70,9 @@ UPDATE ums.user_info SET status = 'active',failed_login_attempts = 0 WHERE id = 
 UPDATE `ums`.`user_log_history`
 SET `logout_timestamp` = now()
 WHERE `user_id` = ? AND logout_timestamp is null; 
+
+-- query to get the all time registrations according to months
+
+SELECT count(*) as users , date_format(creator_stamp,"%b %Y") as month_year 
+FROM user_info 
+GROUP BY date_format(creator_stamp,"%m %Y");
